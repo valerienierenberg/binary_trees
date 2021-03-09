@@ -9,16 +9,15 @@
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t left_h, right_h;
-
-	if (tree == NULL)
+	size_t l, r;
+	if (!tree || (!(tree->left) && !(tree->right)))
 		return (0);
-	left_h = binary_tree_height(tree->left);
-	right_h = binary_tree_height(tree->right);
-	if (left_h >= right_h)
-		return (left_h + 1);
+	l = binary_tree_height(tree->left) + 1;
+	r = binary_tree_height(tree->right) + 1;
+	if (l > r)
+		return (l);
 	else
-		return (right_h + 1);
+		return (r);
 /* returning either left_h or right_h as is gets 0, but returning either int + 1
 like all the examples I've seen get one more than our example output (3, 2, 1
 rather than 2, 1, 0)*/
