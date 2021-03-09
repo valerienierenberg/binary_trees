@@ -18,7 +18,5 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (l);
 	else
 		return (r);
-/* returning either left_h or right_h as is gets 0, but returning either int + 1
-like all the examples I've seen get one more than our example output (3, 2, 1
-rather than 2, 1, 0)*/
+/* why do we need a null check for tree->left/right to get the right output */
 }
