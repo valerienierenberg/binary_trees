@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
- /**
- * _enqueue - function to add elements to a queue
+/**
+ * bt_enqueue - function to add elements to a queue
  * description: first in
  * @q: pointer to queue
  * @n: value of element to be added
@@ -9,7 +9,7 @@
  * Return: void
  */
 
-void enqueue(queue *q, const binary_tree_t *n)
+void bt_enqueue(queue *q, const binary_tree_t *n)
 {
 	qnode node = malloc(sizeof(struct qnode_s));
 
@@ -21,13 +21,15 @@ void enqueue(queue *q, const binary_tree_t *n)
 		q->begin = node;
 	q->end = node;
 }
- /**
- * dequeue - func to remove an element from the head of the queue
+
+/**
+ * bt_dequeue - func to remove an element from the head of the queue
  * description: first out
  * @q: pointer to queue
  * Return: node from binary tree
  */
-const binary_tree_t *dequeue(queue *q)
+
+const binary_tree_t *bt_dequeue(queue *q)
 {
 	const binary_tree_t *tmp = q->begin->value;
 	qnode second = q->begin->next;
@@ -38,13 +40,15 @@ const binary_tree_t *dequeue(queue *q)
 		q->end = 0;
 	return (tmp);
 }
- /**
- * queue_empty - checks if queue is empty
+
+/**
+ * bt_queue_empty - checks if queue is empty
  * description: verify empty queue
  * @q: pointer to queue
  * Return: y or n
  */
-int queue_empty(queue *q)
+
+int bt_queue_empty(queue *q)
 {
 	return (!q->begin);
 }
