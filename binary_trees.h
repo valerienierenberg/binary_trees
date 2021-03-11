@@ -21,6 +21,27 @@ struct binary_tree_s
     struct binary_tree_s *right;
 };
 
+/*
+* struct gnode_s - struct for the queue in binary_tree_levelorder
+* @next: next element
+* @value: value of node
+*/
+typedef struct qnode_s
+{
+    struct qnode_s* next;
+    const binary_tree_t *value;
+} *qnode;
+ 
+ /**
+ * struct queue - declares the beginning and end of a queue in binary_tree_levelorder
+ * @begin: head
+ * @end: tail
+ */
+typedef struct 
+{ 
+	qnode begin, end; 
+} queue;
+
 typedef struct binary_tree_s binary_tree_t;
 
 typedef struct binary_tree_s bst_t;
@@ -48,7 +69,14 @@ int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+
+/* Main function with helper functions for binary_tree_levelorder */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+void enqueue(queue *q, const binary_tree_t *n);
+const binary_tree_t *dequeue(queue *q);
+int queue_empty(queue *q);
+
+
 int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
